@@ -10,19 +10,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF151515),
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: Icon(Icons.menu, color: Colors.black87),
+        backgroundColor: Color(0xFF151515),
+        leading: Icon(Icons.menu, color: Colors.white),
         elevation: 0,
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 15.0),
             child: Row(
               children: [
-                Icon(Icons.notifications, color: Colors.black87),
+                Icon(Icons.notifications, color: Colors.white),
                 const SizedBox(width: 15.0),
-                Icon(Icons.notifications, color: Colors.black87),
+                Icon(Icons.notifications, color: Colors.white),
               ],
             ),
           )
@@ -30,9 +30,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
           child: SingleChildScrollView(
-
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Welcome home.", style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w700, color: Colors.white)),
+                Text("Rooms", style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.grey)),
+                Text("Devices", style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.grey)),
+              ],
+            ),
           ),
         ),
       ),
