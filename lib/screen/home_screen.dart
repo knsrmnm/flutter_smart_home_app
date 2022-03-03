@@ -35,9 +35,16 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Welcome home.", style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w700, color: Colors.white)),
-                Text("Rooms", style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.grey)),
-                Text("Devices", style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.grey)),
+                Text(
+                  "Welcome home.",
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    color: Colors.white,
+                    fontFamily: 'Comfortaa'
+                  ),
+                ),
+                Text("Rooms", style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.grey, fontFamily: 'Comfortaa')),
+                Text("Devices", style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.grey, fontFamily: 'Comfortaa')),
               ],
             ),
           ),
