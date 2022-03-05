@@ -11,11 +11,11 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _switch2 = false;
   bool _switch3 = false;
   bool _switch4 = false;
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xFF151515),
       appBar: AppBar(
         backgroundColor: Color(0xFF151515),
         leading: Icon(Icons.menu, color: Colors.white),
@@ -31,6 +31,33 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           )
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: ("Home"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category_rounded),
+            label: ("Device"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: ("Setting"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: ("My Page"),
+          ),
         ],
       ),
       body: SafeArea(
@@ -66,7 +93,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 40.0),
-                Text("Devices", style: TextStyle(fontSize: 15.0, color: Colors.grey[300], fontFamily: 'Comfortaa')),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Devices", style: TextStyle(fontSize: 15.0, color: Colors.grey[300], fontFamily: 'Comfortaa')),
+                    Text("+Add Device", style: TextStyle(fontSize: 12.0, color: Colors.white, fontFamily: 'Comfortaa')),
+                  ],
+                ),
                 const SizedBox(height: 15.0),
                 Row(
                   children: [
@@ -202,7 +235,7 @@ Widget _makeDeviceEl(String name, String subText, IconData icon, double width, W
             ),
           ),
           Align(
-            alignment: const Alignment(-1, 0.6),
+            alignment: const Alignment(-1, 0.65),
             child: Padding(
               padding: EdgeInsets.only(left: 5.0),
               child: Text(
