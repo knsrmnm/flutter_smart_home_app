@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+<img width="200" alt="screenshot" src="/assets/screenshot/smarthome.png">
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
