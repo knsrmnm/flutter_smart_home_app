@@ -12,11 +12,10 @@ class MyApp extends StatelessWidget {
       title: 'Smart Home',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFF151515),
+        // scaffoldBackgroundColor: Color(0xFF151515),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Color(0xFF151515),
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey[700]
+          selectedItemColor: Color(0xFF151515),
+          unselectedItemColor: Colors.grey[500]
         )
       ),
       home: HomeScreen(),

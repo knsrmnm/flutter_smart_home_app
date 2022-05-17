@@ -7,27 +7,34 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   bool _switch1 = false;
   bool _switch2 = false;
   bool _switch3 = false;
   bool _switch4 = false;
   int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF151515),
-        leading: Icon(Icons.menu, color: Colors.white),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        leading: Icon(Icons.menu, color: Color(0xFF151515)),
         elevation: 0,
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 15.0),
             child: Row(
               children: [
-                Icon(Icons.notifications, color: Colors.white),
+                Icon(Icons.notifications, color: Color(0xFF151515)),
                 const SizedBox(width: 15.0),
-                Icon(Icons.info_outline, color: Colors.white),
+                Icon(Icons.info_outline, color: Color(0xFF151515)),
               ],
             ),
           )
@@ -71,12 +78,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Welcome home.",
                   style: TextStyle(
                     fontSize: 25.0,
-                    color: Colors.white,
+                    color: Color(0xFF151515),
                     fontFamily: 'Comfortaa'
                   ),
                 ),
                 const SizedBox(height: 30.0),
-                Text("Rooms", style: TextStyle(fontSize: 15.0, color: Colors.grey[300], fontFamily: 'Comfortaa')),
+                Text("Rooms", style: TextStyle(fontSize: 15.0, color: Colors.grey[600], fontFamily: 'Comfortaa')),
                 const SizedBox(height: 15.0),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -96,8 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Devices", style: TextStyle(fontSize: 15.0, color: Colors.grey[300], fontFamily: 'Comfortaa')),
-                    Text("+Add Device", style: TextStyle(fontSize: 12.0, color: Colors.white, fontFamily: 'Comfortaa')),
+                    Text("Devices", style: TextStyle(fontSize: 15.0, color: Colors.grey[600], fontFamily: 'Comfortaa')),
+                    Text("+Add Device", style: TextStyle(fontSize: 12.0, color: Colors.grey[600], fontFamily: 'Comfortaa')),
                   ],
                 ),
                 const SizedBox(height: 15.0),
@@ -181,7 +188,7 @@ Widget _makeRoomEl(String name, bool selected) {
       child: Text(
         name,
         style: TextStyle(
-          color: Colors.white,
+          color: selected ? Colors.white : Colors.black,
           fontFamily: 'Comfortaa',
           fontSize: 13.0
         ),
@@ -194,13 +201,12 @@ Widget _makeRoomEl(String name, bool selected) {
 Widget _makeDeviceEl(String name, String subText, IconData icon, double width, Widget sw) {
   final double containerWidth = (width/2)-24.0;
   final double iconContainerWidth = containerWidth*0.3;
-  bool _active = false;
   return Container(
     width: containerWidth,
     height: 170.0,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(25.0)),
-      color: Colors.grey[800]
+      color: Colors.grey[200]
     ),
     child: Padding(
       padding: EdgeInsets.all(10.0),
@@ -220,7 +226,7 @@ Widget _makeDeviceEl(String name, String subText, IconData icon, double width, W
                 ),
                 width: iconContainerWidth,
                 height: iconContainerWidth,
-                child: Icon(icon, size: 25.0, color: Colors.grey[300]),
+                child: Icon(icon, size: 25.0, color: Color(0xFF151515)),
               )
             )
           ),
@@ -230,7 +236,7 @@ Widget _makeDeviceEl(String name, String subText, IconData icon, double width, W
               padding: EdgeInsets.only(left: 5.0),
               child: Text(
                 name,
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.grey[300]),
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500, color: Color(0xFF151515)),
               ),
             ),
           ),
